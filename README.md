@@ -1,7 +1,7 @@
 spac
 ====
 
-Spac is a simple resource packager for golang projects.
+Simple resource packager for golang projects.
 
 Usage
 -----
