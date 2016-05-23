@@ -15,10 +15,13 @@ The executable expects two arguments:
         <directory> : directory containing the resources to package
         <filename> : name of the golong source file packaging all the resoucres
 
-Spac functions by traversing the directory pointed out by the first argument, 
+`spac` functions by traversing the directory pointed out by the first argument, 
 adding the content of each file in a golang source file pointed by the second 
-parameter in a map named `SpacContent`. Each file is stored as byte array 
-described by a properly escaped string contained in the map.
+argument. 
+
+Each file's content is stored as byte array in a map named 
+`SpacContent` described by a properly escaped string contained in the map. The
+key of each entry in the `SpacContent` map is the path of said file.
 
 Workflow
 --------
