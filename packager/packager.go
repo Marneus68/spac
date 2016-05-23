@@ -1,9 +1,9 @@
 package packager
 
 import (
-	//"bytes"
 	"fmt"
 	"io/ioutil"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -20,6 +20,9 @@ func Create(path, output string) {
 // Traverse the content of dirname recursively and add every file in the
 // Content map
 func Traverse(dirname string) {
+	if !strings.HasSuffix(dirname, string(os.PathSeparator)) {
+		dirname += string(os.PathSeparator)
+	}
 	content, err := ioutil.ReadDir(dirname)
 	if err != nil {
 		fmt.Println("Error opening " + dirname + " ...")
@@ -45,12 +48,12 @@ func Traverse(dirname string) {
 
 // Write the Content map to a file
 func Write(path string) {
-	fmt.Println(Content)
+	//fmt.Println(Content)
 	filecontent := []byte(
 		"package main\n\nvar SpacContent = map[string][]byte {\n")
 	for key, content := range Content {
 		_ = content
-		fmt.Println(key)
+		//fmt.Println(key)
 		filecontent = append(filecontent,
 			[]byte("    \""+key+"\": []byte(")...)
 
