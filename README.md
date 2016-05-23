@@ -16,7 +16,7 @@ Usage
 Spac functions by traversing the directory pointed out by the first argument, 
 adding the content of each file in a golang source file pointed by the second 
 parameter in a map named `SpacContent`. Each file is stored as byte array 
-described by a properly escaped string contained in a map.
+described by a properly escaped string contained in the map.
 
 Workflow
 --------
