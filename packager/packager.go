@@ -1,9 +1,10 @@
 package packager
 
 import (
-	"bytes"
+	//"bytes"
 	"fmt"
 	"io/ioutil"
+	"strconv"
 	"strings"
 )
 
@@ -51,14 +52,12 @@ func Write(path string) {
 		_ = content
 		fmt.Println(key)
 		filecontent = append(filecontent,
-			[]byte("    \""+key+"\": []byte(\"")...)
+			[]byte("    \""+key+"\": []byte(")...)
 
-		content = bytes.Replace(content, []byte("\\"), []byte("\\\\"), -1)
-		content = bytes.Replace(content, []byte("\""), []byte("\\\""), -1)
+		content = []byte(strconv.Quote(string(content)))
 
 		filecontent = append(filecontent, content...)
-
-		filecontent = append(filecontent, []byte("\"),")...)
+		filecontent = append(filecontent, []byte("),\n")...)
 	}
 	filecontent = append(filecontent, []byte("}")...)
 	ioutil.WriteFile(path, filecontent, 0644)
