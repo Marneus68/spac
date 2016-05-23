@@ -46,7 +46,7 @@ func Traverse(dirname string) {
 func Write(path string) {
 	fmt.Println(Content)
 	filecontent := []byte(
-		"package main\n\nvar SpacContent = map[string][]byte = {\n")
+		"package main\n\nvar SpacContent = map[string][]byte {\n")
 	for key, content := range Content {
 		_ = content
 		fmt.Println(key)
@@ -60,6 +60,6 @@ func Write(path string) {
 
 		filecontent = append(filecontent, []byte("\"),")...)
 	}
-	filecontent = append(filecontent, []byte("]")...)
+	filecontent = append(filecontent, []byte("}")...)
 	ioutil.WriteFile(path, filecontent, 0644)
 }
