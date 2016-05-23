@@ -52,8 +52,12 @@ func Write(path string) {
 		fmt.Println(key)
 		filecontent = append(filecontent,
 			[]byte("    \""+key+"\": []byte(\"")...)
-		filecontent = append(filecontent,
-			bytes.Replace(content, []byte("\""), []byte("\\\""), -1)...)
+
+		content = bytes.Replace(content, []byte("\\"), []byte("\\\\"), -1)
+		content = bytes.Replace(content, []byte("\""), []byte("\\\""), -1)
+
+		filecontent = append(filecontent, content...)
+
 		filecontent = append(filecontent, []byte("\"),")...)
 	}
 	filecontent = append(filecontent, []byte("]")...)
