@@ -33,6 +33,6 @@ func PrintUsage() {
 	fmt.Println("Usage: spac <directory> <filename>")
 	fmt.Println("")
 	fmt.Println("    <directory> : directory containing the resources to package")
-	fmt.Println("    <filename> : name of the golong source file packaging all the resoucres")
+	fmt.Println("    <filename> : name of the golang source file packaging all the resources")
 	fmt.Println("")
 }
