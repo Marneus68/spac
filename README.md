@@ -13,7 +13,7 @@ The executable expects two arguments:
     Usage: spac <directory> <filename>
 
         <directory> : directory containing the resources to package
-        <filename> : name of the golong source file packaging all the resoucres
+        <filename> : name of the golang source file packaging all the resources
 
 `spac` functions by traversing the directory pointed out by the first argument, 
 adding the content of each file in a golang source file pointed by the second 
