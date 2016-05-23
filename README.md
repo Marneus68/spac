@@ -6,7 +6,9 @@ Simple resource packager for golang projects.
 Usage
 -----
 
-`spac` expects two arguments:
+`spac` allows you to embed static resources in a golang source file.
+
+The executable expects two arguments:
 
     Usage: spac <directory> <filename>
 
