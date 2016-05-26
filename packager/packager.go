@@ -49,8 +49,9 @@ func Traverse(dirname string) {
 // Write the Content map to a file
 func Write(path string) {
 	//fmt.Println(Content)
+	os.Mkdir(path, 0755)
 	filecontent := []byte(
-		"package static\n\nvar Content = map[string][]byte {\n")
+		"package " + path + "\n\nvar Content = map[string][]byte {\n")
 	for key, content := range Content {
 		_ = content
 		//fmt.Println(key)
@@ -63,5 +64,5 @@ func Write(path string) {
 		filecontent = append(filecontent, []byte("),\n")...)
 	}
 	filecontent = append(filecontent, []byte("}")...)
-	ioutil.WriteFile(path, filecontent, 0644)
+	ioutil.WriteFile(path+string(os.PathSeparator)+path+".go", filecontent, 0644)
 }
