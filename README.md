@@ -13,15 +13,17 @@ The executable expects two arguments:
     Usage: spac <directory> <filename>
 
         <directory> : directory containing the resources to package
-        <filename> : name of the golang source file packaging all the resources
+        <package> : name of the golang package that will contain the resources
 
-`spac` functions by traversing the directory pointed out by the first argument, 
-adding the content of each file in a golang source file pointed by the second 
-argument. 
+`spac` functions by traversing the directory pointed out by the first argument,
+adding the content of each file in a golang source file.
 
-Each file's content is stored as byte array in a map named 
-`SpacContent` described by a properly escaped string contained in the map. The
-key of each entry in the `SpacContent` map is the path of said file.
+Each file's content is stored as byte array in a map named `Content` described 
+by a properly escaped string contained in the map. The key of each entry in the 
+`Content` map is the path of said file.o
+
+By default, the source file containing the resources is contained in a golang
+package named `static`.
 
 Workflow
 --------
